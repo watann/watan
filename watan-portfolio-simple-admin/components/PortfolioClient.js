@@ -141,6 +141,11 @@ export default function PortfolioClient({ projects }) {
 
       <main>
         <section className="hero-section" id="home">
+          <div className="hero-aurora" aria-hidden="true">
+            <span className="aurora-mint" />
+            <span className="aurora-blue" />
+            <span className="aurora-violet" />
+          </div>
           <div className="hero-grid" aria-hidden="true" />
           <div className="hero-orbit orbit-one" aria-hidden="true" />
           <div className="hero-orbit orbit-two" aria-hidden="true" />

@@ -10,3 +10,70 @@
 @media(max-width:480px){.brand-mark strong{display:none}.hero-copy h1{font-size:3rem}.hero-buttons>*{width:100%;justify-content:center}.portrait-frame{width:270px;height:390px}.portrait-stage{min-height:440px}.quality-row{grid-template-columns:1fr}.admin-stats{grid-template-columns:1fr}.admin-topbar{flex-direction:column}.admin-primary{width:100%}.admin-sidebar nav button,.admin-sidebar nav a{font-size:.82rem;padding:0 11px}.message-main{flex-basis:100%}.message-actions{margin-right:0}.message-avatar{display:none}}
 
 .admin-setup-notice{display:flex;gap:11px;padding:13px;border:1px solid rgba(255,193,7,.2);border-radius:14px;background:rgba(255,193,7,.07);color:#ffd76b;margin:18px 0}.admin-setup-notice i{font-size:1.2rem}.admin-setup-notice strong{display:block}.admin-setup-notice p{color:#b9a878;font-size:.79rem;line-height:1.6;margin:4px 0 0}.admin-setup-notice code{color:#fff}
+
+/* The hero uses its own vivid aurora so a palette change is immediately visible. */
+.hero-section {
+  background:
+    linear-gradient(115deg, rgba(8, 14, 31, .96) 0%, rgba(13, 29, 48, .78) 48%, rgba(8, 18, 35, .95) 100%),
+    var(--bg);
+  isolation: isolate;
+}
+
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-aurora span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: .58;
+  animation: aurora-drift 14s ease-in-out infinite alternate;
+}
+
+.aurora-mint {
+  width: min(46vw, 720px);
+  height: min(46vw, 720px);
+  top: -24%;
+  right: -6%;
+  background: rgba(46, 229, 183, .31);
+}
+
+.aurora-blue {
+  width: min(52vw, 820px);
+  height: min(40vw, 620px);
+  bottom: -26%;
+  left: 9%;
+  background: rgba(53, 133, 255, .28);
+  animation-delay: -5s !important;
+}
+
+.aurora-violet {
+  width: min(32vw, 500px);
+  height: min(32vw, 500px);
+  top: 24%;
+  left: 42%;
+  background: rgba(139, 92, 246, .19);
+  animation-delay: -9s !important;
+}
+
+@keyframes aurora-drift {
+  to { transform: translate3d(5%, 7%, 0) scale(1.12); }
+}
+
+:root[data-theme='light'] .hero-section {
+  background:
+    linear-gradient(115deg, rgba(244, 249, 255, .92), rgba(232, 250, 247, .74), rgba(240, 245, 255, .92)),
+    var(--bg);
+}
+
+:root[data-theme='light'] .hero-aurora span { opacity: .32; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora span { animation: none; }
+}
